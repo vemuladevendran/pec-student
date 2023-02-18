@@ -1,0 +1,36 @@
+<div class="container mb-5">
+    <div class="row pt-3 align-items-center">
+        <!-- header -->
+        <div class="col-8 fw-bold">Welcome Back !</div>
+        <div class="col-4 text-end position-relative">
+            <img src="/assets/icons/avathar.png" alt="profile" (click)="toggeleLogout()" class="profile-icon">
+            <div class="position-absolute p-3 fw-bold log-btn" (click)="logOut()" *ngIf="showLogout">Log out</div>
+        </div>
+        <!-- top carousel section -->
+        <div class="col-12 p-0 py-2">
+            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <img src="/assets/c-1.jpg" class="d-block w-100 carousel-img" alt="image">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000" *ngFor="let a of announcementDetails">
+                        <a [href]="a?.url" target="_blank">
+                            <img [src]="a?.image" class="d-block w-100 carousel-img" alt="image">
+                        </a>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+       
+    </div>
+</div>
