@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <p class="fw-bold" style="font-size: 12px;">{{timeTable?.departmentName}} - ( {{timeTable?.section}} section ) time table
+        </p>
+        <div class="col-12 table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Day/Period</th>
+                        <th scope="col" *ngFor="let l of [1,2,3,4,5,6,7,8]">{{l}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr [ngClass]="today === daysInWeek[1] ? 'bg' : ''">
+                        <th scope="row">Monday</th>
+                        <td *ngFor="let s of [1,2,3,4,5,6,7,8]">
+                            {{timeTable?.timeTable.monday[s]}}
+                        </td>
+                    </tr>
+                    <tr [ngClass]="today === daysInWeek[2] ? 'bg' : ''">
+                        <th scope="row">Tuesday</th>
+                        <td *ngFor="let s of [1,2,3,4,5,6,7,8]">
+                            {{timeTable?.timeTable.tuesday[s]}}
+                        </td>
+                    </tr>
+                    <tr [ngClass]="today === daysInWeek[3] ? 'bg' : ''">
+                        <th scope="row">Wednesday</th>
+                        <td *ngFor="let s of [1,2,3,4,5,6,7,8]">
+                            {{timeTable?.timeTable.wednesday[s]}}
+                        </td>
+                    </tr>
+                    <tr [ngClass]="today === daysInWeek[4] ? 'bg' : ''">
+                        <th scope="row">Thursday</th>
+                        <td *ngFor="let s of [1,2,3,4,5,6,7,8]">
+                            {{timeTable?.timeTable.thursday[s]}}
+                        </td>
+                    </tr>
+                    <tr [ngClass]="today === daysInWeek[5] ? 'bg' : ''">
+                        <th scope="row">Friday</th>
+                        <td *ngFor="let s of [1,2,3,4,5,6,7,8]">
+                            {{timeTable?.timeTable.friday[s]}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
