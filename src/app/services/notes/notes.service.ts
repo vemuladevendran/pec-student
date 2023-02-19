@@ -12,21 +12,16 @@ export class NotesService {
     private settings: SettingsService,
 
   ) { }
-
-  uploadNotes(data: any): Promise<any> {
-    const url = `${this.settings.API_BASE_URL}/notes`;
-    return lastValueFrom(this.http.post(url, data));
+  getNotesById(id: any): Promise<any> {
+    const url = `${this.settings.API_BASE_URL}/notes/${id}`;
+    return lastValueFrom(this.http.get(url));
   }
 
-  getNotes(filters: any): Promise<any> {
-    const url = `${this.settings.API_BASE_URL}/notes`;
+  getUnitWiseNotes(filters: any): Promise<any> {
+    const url = `${this.settings.API_BASE_URL}/notes/units`;
     return lastValueFrom(this.http.get(url, {
       params: filters,
     }));
   }
 
-  deleteNotes(id: any): Promise<any> {
-    const url = `${this.settings.API_BASE_URL}/notes/${id}`;
-    return lastValueFrom(this.http.delete(url));
-  }
 }

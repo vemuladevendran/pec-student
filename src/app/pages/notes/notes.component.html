@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h3 class="fw-bold">Notes</h3>
+            <hr>
+            <p style="font-size: 14px;">
+                Here you can download the all subjects of {{studentData?.department}} ( {{studentData?.semester}} semester ) notes
+            </p>
+            <p>
+                <span class="fw-bold me-2">Important Note : </span>
+                <span style="font-size: 12px;">To download each note you need to answer the security question</span>
+            </p>
+            <hr>
+            <mat-accordion class="ms-3" *ngFor="let l of notes; index as i">
+                <mat-expansion-panel hideToggle>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <div class="d-flex justify-content-between align-items-center w-100">
+                                <div>{{i + 1}}</div>
+                                <div style="font-size: 14px;">{{l.subject }}</div>
+                            </div>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="text-center">unit</th>
+                                    <th scope="col" class="text-center">Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let s of l.units; ">
+                                    <th scope="row" class="text-center">{{s.unit}}</th>
+                                    <th class="text-center">
+                                        <a [routerLink]="s.pdfFiles[0].id"> <mat-icon aria-hidden="false"
+                                                aria-label="Edit" matTooltip="Download"
+                                                class="text-primary">download</mat-icon></a>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+    </div>
+</div>

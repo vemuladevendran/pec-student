@@ -16,6 +16,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
+      { path: 'notes', loadChildren: () => import('./pages/notes/notes.module').then(m => m.NotesModule) },
       {
         path: '**',
         redirectTo: '/home',
