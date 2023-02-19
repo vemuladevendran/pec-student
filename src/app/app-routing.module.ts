@@ -17,6 +17,7 @@ const routes: Routes = [
     children: [
       { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
       { path: 'notes', loadChildren: () => import('./pages/notes/notes.module').then(m => m.NotesModule) },
+      { path: 'marks', loadChildren: () => import('./pages/marks/marks.module').then(m => m.MarksModule) },
       {
         path: '**',
         redirectTo: '/home',
