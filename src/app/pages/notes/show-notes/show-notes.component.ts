@@ -46,6 +46,7 @@ export class ShowNotesComponent implements OnInit {
   async checkAnswer(e: Event): Promise<void> {
     try {
       e.preventDefault();
+      this.loader.show();
       const value = this.answer.value?.toLowerCase();
       if (value !== this.secutityAnswer) {
         this.toast.error('Incorrect Answer');

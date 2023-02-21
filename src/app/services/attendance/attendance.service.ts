@@ -13,17 +13,9 @@ export class AttendanceService {
 
   ) { }
 
-  // mark Attendance
-  markAttendance(data: any): Promise<any> {
-    const url = `${this.settings.API_BASE_URL}/attendance`;
-    return lastValueFrom(this.http.post(url, data));
-  }
-
   // get attendance details
-  getAttendanceDetails(filters: any): Promise<any> {
-    const url = `${this.settings.API_BASE_URL}/attendance`;
-    return lastValueFrom(this.http.get(url, {
-      params: filters,
-    }));
+  getAttendanceDetails(examNumber: any): Promise<any> {
+    const url = `${this.settings.API_BASE_URL}/attendance/${examNumber}`;
+    return lastValueFrom(this.http.get(url));
   }
 }

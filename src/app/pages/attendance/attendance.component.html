@@ -1,0 +1,43 @@
+<div class="container py-3">
+    <div class="row">
+        <div class="col-12">
+            <h3 class="fw-bold">Attendance Reports</h3>
+            <hr>
+            <mat-accordion class="ms-3" *ngFor="let a of attendanceData; index as i">
+                <mat-expansion-panel hideToggle>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <div class="d-flex justify-content-between align-items-center w-100">
+                                <div style="font-size: 14px;">{{a.date | date }}</div>
+                                <div style="font-size: 14px;">Total Absent : <span class="fw-bold">{{a.absent }}</span></div>
+                            </div>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="text-center">Date</th>
+                                    <th scope="col" class="text-center">PeriodNumber</th>
+                                    <th scope="col" class="text-center">Attendance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let a of a.attendence; ">
+                                    <th scope="row" class="text-center">{{a.date | date}}</th>
+                                    <th scope="row" class="text-center">{{a.periodNumber}}</th>
+                                    <th class="text-center">
+                                        <mat-icon *ngIf="a.present" aria-hidden="false" aria-label="Edit"
+                                            matTooltip="Present" class="text-success">check_circle</mat-icon>
+                                        <mat-icon *ngIf="a.absent" aria-hidden="false" aria-label="Edit"
+                                            matTooltip="Absent" class="text-danger">dangerous</mat-icon>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+    </div>
+</div>
