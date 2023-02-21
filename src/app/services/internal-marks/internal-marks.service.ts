@@ -20,5 +20,12 @@ export class InternalMarksService {
     return lastValueFrom(this.http.get(url, {
       params: semester,
     }));
+  };
+
+  getSemesterMarks(examNumber: any, semester?: any): Promise<any> {
+    const url = `${this.settings.API_BASE_URL}/semester-marks/student/${examNumber}`;
+    return lastValueFrom(this.http.get(url, {
+      params: semester,
+    }));
   }
 }

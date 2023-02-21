@@ -5,33 +5,19 @@ import { InternalMarksService } from 'src/app/services/internal-marks/internal-m
 import { TokenService } from 'src/app/services/token/token.service';
 
 @Component({
-  selector: 'app-marks',
-  templateUrl: './marks.component.html',
-  styleUrls: ['./marks.component.scss']
+  selector: 'app-semester-marks',
+  templateUrl: './semester-marks.component.html',
+  styleUrls: ['./semester-marks.component.scss']
 })
-export class MarksComponent implements OnInit {
+export class SemesterMarksComponent implements OnInit {
   examNumber: any;
-  marksData: any[] = [];
-  semester = ''
+  semesterMarksDetails: any[] = [];
   constructor(
-    private toast: ToastrService,
     private loader: NgxSpinnerService,
-    private markServe: InternalMarksService,
+    private toast: ToastrService,
     private tokenServe: TokenService,
+    private marksServe: InternalMarksService,
   ) { }
-
-
-  async getMarksData(): Promise<void> {
-    try {
-      this.loader.show();
-      this.marksData = await this.markServe.getMarks(this.examNumber);
-    } catch (error) {
-      console.log(error);
-      this.toast.error('Fail to load marks')
-    } finally {
-      this.loader.hide();
-    }
-  }
 
 
   async getStudentData(): Promise<void> {
@@ -44,14 +30,14 @@ export class MarksComponent implements OnInit {
     }
   };
 
-  async onSemesterChange(semester: any): Promise<void> {
+  async getMarksData(): Promise<void> {
     try {
       this.loader.show();
-      this.semester = semester;
-      this.marksData = await this.markServe.getMarks(this.examNumber, { semester });
+      const data = await this.marksServe.getSemesterMarks(this.examNumber);
+      this.semesterMarksDetails = data.data;
     } catch (error) {
       console.log(error);
-      this.toast.error('Fail to load marks')
+      this.toast.error('Fail to load')
     } finally {
       this.loader.hide();
     }

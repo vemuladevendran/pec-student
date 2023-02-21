@@ -1,0 +1,21 @@
+<div class="container py-3 mb-5">
+    <div class="row">
+        <div class="col-12">
+            <h3 class="fw-bold">Semester Marks</h3>
+            <hr>
+            <div class="col-12 col-md-6 col-lg-3 shadow border border-dark my-2 p-3" *ngFor="let m of semesterMarksDetails">
+                <div class="d-flex justify-content-between">
+                    <p class="text-uppercase fw-bold">{{m.examNumber}}</p>
+                    <p class="fw-bold">{{m.exam}}</p>
+                </div>
+                <hr>
+                <div class="row justify-content-between" [ngClass]="s.mark < 50 ? 'bg': ''"
+                    *ngFor="let s of m.subjects">
+                    <p class="mb-0 py-2 col-9 fw-bold">{{s.subjectName}}</p>
+                    <p class="mb-0 py-2 col-2">{{s.mark}}</p>
+                    <p class="mb-0 py-2 col-1">{{s.mark > 50 ? 'P' : 'F'}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

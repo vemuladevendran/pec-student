@@ -1,4 +1,4 @@
-<div class="container py-3">
+<div class="container py-3 mb-5">
     <div class="row">
         <div class="col-12">
             <div class="d-flex justify-content-between">
@@ -14,9 +14,12 @@
                     </ul>
                 </div>
             </div>
+            <div>
+                <button class="btn btn-primary w-100"  routerLink="semester">Get Semester Marks</button>
+            </div>
             <hr>
             <h2 class="text-center" *ngIf="marksData.length === 0">No Data Found</h2>
-            <div class="col-12 col-md-6 col-lg-3 marks_card shadow border border-dark my-2 p-3"
+            <div class="col-12 col-md-6 col-lg-3 shadow border border-dark my-2 p-3"
                 *ngFor="let m of marksData">
                 <div class="d-flex justify-content-between">
                     <p class="text-uppercase fw-bold">{{m._id}}</p>

@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row">
+    <div class="row"  *ngIf="timeTable">
         <p class="fw-bold" style="font-size: 12px;">{{timeTable?.departmentName}} - ( {{timeTable?.section}} section ) time table
         </p>
         <div class="col-12 table-responsive">
