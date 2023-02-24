@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { TokenService } from 'src/app/services/token/token.service';
@@ -21,6 +22,7 @@ export class EnterPasswordComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private fb: FormBuilder,
+    private loader: NgxSpinnerService,
   ) {
     this.getPageDetails();
 
@@ -28,6 +30,7 @@ export class EnterPasswordComponent implements OnInit {
 
   async passwordDetails(): Promise<void> {
     try {
+      this.loader.show();
       if (this.pageName === 'set') {
         const res: any = await this.authServe.studentSetPassword(this.passwordForm.value);
         this.tokenServe.saveToken(res?.token);
@@ -40,6 +43,8 @@ export class EnterPasswordComponent implements OnInit {
     } catch (error: any) {
       console.error(error);
       this.toast.error(error?.error.message)
+    }finally{
+      this.loader.hide();
     }
   }
 

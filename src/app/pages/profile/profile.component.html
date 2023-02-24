@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row py-3">
+        <div class="col-12">
+            <div class="text-center">
+                <img [src]="studentData?.photo ? studentData?.photo : '/assets/default-profile.png'" alt="Profile Image"
+                    class="profile_img">
+                <p class="mt-2 fw-bold">{{studentData?.studentName}}</p>
+                <p class="fw-bold fs-5">{{studentData?.examNumber}}</p>
+            </div>
+            <hr>
+            <div class="row details">
+                <div class="col-6 fw-bold">Roll Number : </div>
+                <div class="col-6">{{studentData?.rollNumber}}</div>
+                <div class="col-6 fw-bold">Department : </div>
+                <div class="col-6">{{studentData?.department}}</div>
+                <div class="col-6 fw-bold">Year : </div>
+                <div class="col-6">{{studentData?.year}}</div>
+                <div class="col-6 fw-bold">Section : </div>
+                <div class="col-6">{{studentData?.section}}</div>
+                <div class="col-6 fw-bold">Email : </div>
+                <div class="col-6">{{studentData?.email}}</div>
+                <div class="col-6 fw-bold">Mobile Number : </div>
+                <div class="col-6">{{studentData?.mobileNumber}}</div>
+                <div class="col-6 fw-bold">DOB : </div>
+                <div class="col-6">{{studentData?.dob | date}}</div>
+                <div class="col-6 fw-bold">Address : </div>
+                <div class="col-6">{{studentData?.address}}</div>
+            </div>
+        </div>
+        <hr>
+        <div>
+            <button (click)="logOut()" class="btn btn-secondary w-100">Logout</button>
+        </div>
+    </div>
+</div>
