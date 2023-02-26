@@ -30,7 +30,7 @@
                                     <tr *ngFor="let s of l.units; ">
                                         <th scope="row" class="text-center">{{s.unit}}</th>
                                         <th class="text-center">
-                                            <a [routerLink]="s.pdfFiles[0].id"> <mat-icon aria-hidden="false"
+                                            <a [href]="s.pdfFiles[0]" target="_blank" download> <mat-icon aria-hidden="false"
                                                     aria-label="Edit" matTooltip="Download"
                                                     class="text-primary">download</mat-icon></a>
                                         </th>

@@ -34,7 +34,6 @@ export class AssignmentsComponent implements OnInit {
       this.loader.show();
       const data = await this.assignmentsServe.getAssignments({ examNumber: this.studentData?.examNumber });
       this.assignmentDetails = data[0].subjects;
-      console.log(this.assignmentDetails, '==========');
     } catch (error) {
       console.log(error);
       this.toast.error('Fail to load')
