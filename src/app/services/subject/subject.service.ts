@@ -18,20 +18,6 @@ export class SubjectService {
     const url = `${this.settings.API_BASE_URL}/subject`;
     return lastValueFrom(this.http.get(url));
   }
-
-  // create subject
-  createSubject(data: any): Promise<any> {
-    const url = `${this.settings.API_BASE_URL}/subject`;
-    return lastValueFrom(this.http.post(url, data));
-  }
-
-  // delete subject
-
-  deleteSubject(id: string): Promise<any> {
-    const url = `${this.settings.API_BASE_URL}/subject/${id}`;
-    return lastValueFrom(this.http.delete(url));
-  }
-
   // get department subjects
   getDepartmentSubjects(filters?: any): Promise<any> {
     const url = `${this.settings.API_BASE_URL}/departmentSubject`;
