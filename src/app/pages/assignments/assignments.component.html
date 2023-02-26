@@ -6,6 +6,41 @@
                 <button class="btn btn-primary" routerLink="upload">Upload Assignments</button>
             </div>
             <hr>
+            <div *ngIf="assignmentDetails.length === 0" class="text-center">No Data Found</div>
+            <div>
+                <mat-accordion class="ms-3" *ngFor="let l of assignmentDetails; index as i">
+                    <mat-expansion-panel hideToggle>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <div class="d-flex align-items-center w-100">
+                                    <div class="col-2">{{i + 1}}</div>
+                                    <div class="col-10" style="font-size: 14px;">{{l.subject }}</div>
+                                </div>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="text-center">Assignment</th>
+                                        <th scope="col" class="text-center">Assignment PDF</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let s of l.units; ">
+                                        <th scope="row" class="text-center">{{s.unit}}</th>
+                                        <th class="text-center">
+                                            <a [routerLink]="s.pdfFiles[0].id"> <mat-icon aria-hidden="false"
+                                                    aria-label="Edit" matTooltip="Download"
+                                                    class="text-primary">download</mat-icon></a>
+                                        </th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
         </div>
     </div>
 </div>

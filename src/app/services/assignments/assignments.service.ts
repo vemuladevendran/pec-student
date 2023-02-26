@@ -20,7 +20,7 @@ export class AssignmentsService {
 
   getAssignments(filters: any): Promise<any> {
     const url = `${this.settings.API_BASE_URL}/assignments`;
-    return lastValueFrom(this.http.post(url, {
+    return lastValueFrom(this.http.get(url, {
       params: filters,
     }));
   }
