@@ -23,5 +23,5 @@ export class AssignmentsService {
     return lastValueFrom(this.http.get(url, {
       params: filters,
     }));
-  }
+  };
 }

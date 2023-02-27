@@ -24,15 +24,19 @@
                                     <tr>
                                         <th scope="col" class="text-center">Assignment</th>
                                         <th scope="col" class="text-center">Assignment PDF</th>
+                                        <th scope="col" class="text-center">Marks</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let s of l.units; ">
                                         <th scope="row" class="text-center">{{s.unit}}</th>
                                         <th class="text-center">
-                                            <a [href]="s.pdfFiles[0]" target="_blank" download> <mat-icon aria-hidden="false"
-                                                    aria-label="Edit" matTooltip="Download"
+                                            <a [href]="s.pdfFiles[0]" target="_blank" download> <mat-icon
+                                                    aria-hidden="false" aria-label="Edit" matTooltip="Download"
                                                     class="text-primary">download</mat-icon></a>
+                                        </th>
+                                        <th class="text-center">
+                                            {{s.marks ? s.marks : 'Pending'}}
                                         </th>
                                     </tr>
                                 </tbody>
